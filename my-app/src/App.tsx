@@ -55,33 +55,25 @@ function App() {
     <div className="App">
       <main className="container">
 <div className="bg-light p-5 rounded">
-  <img src="https://www.publicbooks.org/wp-content/uploads/2017/01/book-e1484158615982.jpg" width="250" height="250"></img>
+  <img src="https://www.publicbooks.org/wp-content/uploads/2017/01/book-e1484158615982.jpg" width="1000" height="400"></img>
     <h1 className="defined">DICTIONARY</h1>
     <p className="lead">Definition</p>
   {def.map((def: any) => (
   <ul className="list-unstyled">
     <li><b><u>{def.word}</u></b></li>
     {def.phonetics.map((phonetics: any) => (
-  <ul className="list-unstyled">
-    <li><b>Phonetic: </b>{phonetics.text}</li>
-    {def.meanings.map((meanings: any) => (
-  <ul className="list-unstyled">
-    <li><i>{meanings.partOfSpeech}</i></li>
-    <li><b>Antonym(s): </b>{meanings.antonyms}</li>
-    <li><b>Synonym(s): </b>{meanings.synonyms[0]}</li>
-    {meanings.definitions.map((definitions: any) => (
-  <ul className="list-unstyled">
-      <ul>
-        <li>{definitions.definition}</li>
-        {/* <li>{def.meanings[0].definitions[1].definition}</li> */}
-      </ul>
-      {/* <li><i>{def.meanings[1].partOfSpeech}</i></li>
-      <ol>
-        <li>{def.meanings[1].definitions[0].definition}</li>
-        <li>{def.meanings[1].definitions[1].definition}</li>
-      </ol>
-      <li>Antonym(s): {def.meanings[1].antonyms}</li>
-    <li>Synonym(s): {def.meanings[1].synonyms[1]}</li> */}
+    <ul className="list-unstyled">
+      <li><b>Phonetic: </b>{phonetics.text}</li>
+        {def.meanings.map((meanings: any) => (
+        <ul className="list-unstyled">
+          <li><i>{meanings.partOfSpeech}</i></li>
+          <li><b>Antonym(s): </b>{meanings.antonyms.join(', ')} </li>
+          <li><b>Synonyms(s): </b>{meanings.synonyms.join(', ')} </li>
+              {meanings.definitions.map((definitions: any) => (
+              <ul className="list-unstyled">
+                 <ul>
+                 <li>{definitions.definition}</li>
+                 </ul>
     </ul>
     ))}
     <p>______________________________________</p>
