@@ -64,18 +64,19 @@ function App() {
     <li><b><u>{def.word}</u></b></li>
     {def.phonetics.map((phonetics: any) => (
     <ul className="list-unstyled">
-      <li>{phonetics.text}</li>
+      <li>{phonetics.text}</li> 
+      <li>{<audio src = {phonetics.audio} controls></audio>}</li>
         {def.meanings.map((meanings: any) => (
         <ul className="list-unstyled">
           <li><i>{meanings.partOfSpeech}</i></li>
-          <li><b>antonym(s): </b>{meanings.antonyms.join(', ')} </li>
-          <li><b>synonyms(s): </b>{meanings.synonyms.join(', ')} </li>
+          <li><b>{meanings.antonyms.join(', ') === "" ? "" : "antonyms: "}</b>{meanings.antonyms.join(', ')} </li>
+          <li><b>{meanings.synonyms.join(', ') === "" ? "" : "synonyms: "}</b>{meanings.synonyms.join(', ')} </li>
               {meanings.definitions.map((definitions: any) => (
               <ul className="list-unstyled">
-                 <ul><li>{definitions.definition}</li> </ul>
+              <li><li>  ⋄ {definitions.definition}</li></li>
     </ul>
     ))}
-    <p>______________________________________</p>
+    <p>_______________________________________________________________________________</p>
     </ul>
     ))}
     </ul>
