@@ -20,6 +20,7 @@ function App() {
 
 
 
+
     useEffect(() => {
       const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
       form.onsubmit = async () => {
@@ -55,7 +56,7 @@ function App() {
     <div className="App">
       <main className="container">
 <div className="bg-light p-5 rounded">
-  <img src="https://www.publicbooks.org/wp-content/uploads/2017/01/book-e1484158615982.jpg" width="1000" height="400"></img>
+  <img src="https://www.publicbooks.org/wp-content/uploads/2017/01/book-e1484158615982.jpg" width="700" height="400"></img>
     <h1 className="defined">DICTIONARY</h1>
     <p className="lead">Definition</p>
   {def.map((def: any) => (
@@ -63,17 +64,15 @@ function App() {
     <li><b><u>{def.word}</u></b></li>
     {def.phonetics.map((phonetics: any) => (
     <ul className="list-unstyled">
-      <li><b>Phonetic: </b>{phonetics.text}</li>
+      <li>{phonetics.text}</li>
         {def.meanings.map((meanings: any) => (
         <ul className="list-unstyled">
           <li><i>{meanings.partOfSpeech}</i></li>
-          <li><b>Antonym(s): </b>{meanings.antonyms.join(', ')} </li>
-          <li><b>Synonyms(s): </b>{meanings.synonyms.join(', ')} </li>
+          <li><b>antonym(s): </b>{meanings.antonyms.join(', ')} </li>
+          <li><b>synonyms(s): </b>{meanings.synonyms.join(', ')} </li>
               {meanings.definitions.map((definitions: any) => (
               <ul className="list-unstyled">
-                 <ul>
-                 <li>{definitions.definition}</li>
-                 </ul>
+                 <ul><li>{definitions.definition}</li> </ul>
     </ul>
     ))}
     <p>______________________________________</p>
